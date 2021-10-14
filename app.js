@@ -31,7 +31,7 @@ app.use('/todos' , todosRoute) ;
 app.use('/' , authRoute) ; 
 
 app.use('/' , (req ,res )=>{
-    res.send("can't found the routes")
+    res.status(404).send("path does not exist please vist /login or /signup path ")
 })
 
 
