@@ -14,7 +14,7 @@ This is a simple to do app which has this endpoints
 Authentication is done using   JSON web token with cookies.
 
 
-## You can find the complete API documentation [here](https://documenter.getpostman.com/view/17412794/UV5UjJjD)
+## You can find the API documentation [here](https://documenter.getpostman.com/view/17412794/UV5UjJjD)
 <a href="https://documenter.getpostman.com/view/17412794/UV5UjJjD" target="_blank">
     <img src="https://raw.githubusercontent.com/afteracademy/nodejs-backend-architecture-typescript/master/addons/github_assets/api-doc-button.png" width="200" height="60"/>
 </a>
