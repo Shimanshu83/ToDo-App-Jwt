@@ -26,10 +26,18 @@ const register = async (req, res) => {
             try {
         
                 user = await user.save() ;
-                return res.status(200).send(user)
+                return res.status(201).send({
+                    sucess : true,
+                    msg : "User successfully registerd" , 
+                    user : {
+                        id : user.id ,
+                        email : user.email ,
+                        username : user.username             
+                    }
+                })
                 
             } catch (error) {
-                console.log(error)
+                
                 if(error){
                 return res.status(500).send({err : error})
             }

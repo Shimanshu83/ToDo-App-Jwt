@@ -10,17 +10,17 @@ const registerInitailCheck = (req , res , next ) => {
         typeof confirmPassword === 'string') 
     ){
         
-        res.status(400).send({err : 'All fields are mendatory '});
+       return  res.status(400).send({err : 'All fields are mendatory '});
     }
     else if (!(password === confirmPassword)){
-        res.status(400).send({err : 'password and confirmPassword must match'})
+        return  res.status(400).send({err : 'password and confirmPassword must match'})
     }
     else if (!emailValidator(email)){
-        res.status(400).send({err : 'please enter the valid emai'})
+       return res.status(400).send({err : 'please enter the valid emai'})
     }
     else if(!passwordValidator(password)){
         
-        res.status(400).send({err : 'password must be minimum eigth character, at least one letter and one number'});
+        return res.status(400).send({err : 'password must be minimum eigth character, at least one letter and one number'});
         
     }
     

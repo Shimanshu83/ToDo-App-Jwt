@@ -4,7 +4,8 @@
   "description": "This is To-Do crud web application built using node js and express. For authentication the web app using jwt and cookies. ",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "node app.js",
+    "devStart" : "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -29,5 +30,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.13"
+  },
+  "engines": {
+    "node": "v14.17.1"
   }
+
 }

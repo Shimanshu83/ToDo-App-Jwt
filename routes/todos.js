@@ -6,7 +6,7 @@ const {getTodos ,
      createTodos , 
      updateTodo , 
      deleteTodo , 
-     getSingleTodo } = require('../controller/todosController');
+     getSingleTodo , taskDoesExist } = require('../controller/todosController');
 
      
 const router = express.Router() ; 
@@ -15,13 +15,29 @@ const router = express.Router() ;
 
 router.get('/', isAuthenticated ,getTodos) ; 
 
+
+/**
+ * the body field of the request will be    
+ * {
+ *   "task" : "done with the internship task "
+ * }
+ */
 router.post('/' , isAuthenticated ,  createTodos) ; 
 
-router.put('/:id' , isAuthenticated , updateTodo) ; 
 
-router.delete('/:id' ,isAuthenticated ,deleteTodo) ; 
 
-router.get('/:id' , isAuthenticated , getSingleTodo) ; 
+
+/**
+ * the body field of the request will be    
+ * {
+ *   "task" : "updated the task "
+ * }
+ */
+router.put('/:id' , isAuthenticated ,taskDoesExist, updateTodo) ; 
+
+router.delete('/:id' ,isAuthenticated,taskDoesExist ,deleteTodo) ; 
+
+router.get('/:id' , isAuthenticated ,taskDoesExist, getSingleTodo) ; 
 
 
 module.exports = router ; 
