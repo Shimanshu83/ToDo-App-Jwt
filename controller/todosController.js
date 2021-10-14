@@ -3,11 +3,15 @@ const Task = require('../models/todoModel') ;
 
 const getTodos =async (req , res) => {
     const tasks = await Task.find({user : req.userId});
+
     if(!tasks){
         res.status(200).send({msg : "No task added "});
     }
+    const result = tasks.map(data=> {
+        return {id : data.id , task : data.task }
+    });
 
-    res.status(200).send(tasks);
+    res.status(200).send(result);
 
 
 }
@@ -26,7 +30,7 @@ const createTodos = async (req , res ) => {
 
     try{
         newTask = await newTask.save() ;
-        return res.status(201).send({sucess : true , msg : "created the task successfully"}) 
+        return res.status(201).send({sucess : true , msg : "created the task successfully" , task : {id : newTask.id , task : newTask.task}} ) 
     }
     catch(err){
         return res.status(500).send({err : "internal server error "})
@@ -43,7 +47,7 @@ const updateTodo =async (req  , res) => {
     }
     try {
     const task = await Task.findOneAndUpdate(filter , update , {new : true });
-    res.status(201).send({sucess : true , msg : "successfully updated"});
+    res.status(201).send({sucess : true , msg : "successfully updated" , data : {id  :task.id , task : task.task} });
     }
     catch(err){
         return res.status(500).send({err : "internal server error "})
@@ -67,8 +71,8 @@ const getSingleTodo =  async(req , res ) => {
     const id = req.params.id ;   
 
     try{
-        var task = await Task.findById(id) ; 
-        res.status(200).send(task);
+        var searchedTask = await Task.findById(id) ; 
+        res.status(200).send({id : searchedTask.id , task : searchedTask.task});
     }
     catch(err){
         res.status(500).send({err : "internal server error"})
