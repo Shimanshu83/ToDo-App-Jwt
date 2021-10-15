@@ -37,7 +37,7 @@ const register = async (req, res) => {
                 })
                 
             } catch (error) {
-                
+
                 if(error){
                 return res.status(500).send({err : error})
             }
@@ -46,7 +46,7 @@ const register = async (req, res) => {
             
         }
     } catch (error) {
-                res.status(500).send({err : "some thingh went wrong "});
+               return res.status(500).send({err : "some thingh went wrong "});
     }   
 }
 module.exports = register ; 
