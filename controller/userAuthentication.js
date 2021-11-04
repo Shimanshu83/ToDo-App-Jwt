@@ -27,7 +27,7 @@ const userAuthentication = async (req , res , next ) => {
         return res.status(401).send({err : "wrong password"})
     }
 
-    //creating token 
+    //creating      token
     const payload = {
         userId : user.id,
     }
