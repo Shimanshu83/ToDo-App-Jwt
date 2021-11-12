@@ -35,10 +35,6 @@ app.use('/' , (req ,res )=>{
 })
 
 
-
-
-
-
-//starting the server
+//starting the 
 const Port =  process.env.PORT || 3030 ; 
 app.listen(Port);
